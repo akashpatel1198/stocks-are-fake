@@ -15,8 +15,10 @@ import {
   FileText,
   Loader2,
   Star,
+  StarOff,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useWatchlistStore } from "@/stores/useWatchlistStore";
 
 interface Quote {
   c: number;
@@ -56,6 +58,9 @@ const TABS: { id: TabId; label: string; icon: React.ElementType }[] = [
 export default function StockDetailPage() {
   const params = useParams();
   const symbol = (params.symbol as string)?.toUpperCase();
+
+  const { addSymbol, removeSymbol, isWatching } = useWatchlistStore();
+  const watching = isWatching(symbol);
 
   const [activeTab, setActiveTab] = useState<TabId>("overview");
   const [quote, setQuote] = useState<Quote | null>(null);
@@ -142,10 +147,27 @@ export default function StockDetailPage() {
           </div>
         </div>
 
-        {/* Add to Watchlist button (placeholder) */}
-        <button className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border hover:bg-accent transition-colors">
-          <Star className="h-4 w-4" />
-          <span>Watch</span>
+        {/* Add to Watchlist button */}
+        <button
+          onClick={() => (watching ? removeSymbol(symbol) : addSymbol(symbol))}
+          className={cn(
+            "flex items-center gap-2 px-4 py-2 rounded-lg border transition-colors",
+            watching
+              ? "border-primary bg-primary/10 text-primary hover:bg-primary/20"
+              : "border-border hover:bg-accent"
+          )}
+        >
+          {watching ? (
+            <>
+              <StarOff className="h-4 w-4" />
+              <span>Unwatch</span>
+            </>
+          ) : (
+            <>
+              <Star className="h-4 w-4" />
+              <span>Watch</span>
+            </>
+          )}
         </button>
       </div>
 
