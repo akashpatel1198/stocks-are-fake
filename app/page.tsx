@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { TrendingUp, TrendingDown, Clock, Activity } from "lucide-react";
+import { TrendingUp, TrendingDown, Activity, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Quote {
@@ -23,15 +23,6 @@ interface MarketStatus {
   timezone: string;
 }
 
-interface Holiday {
-  atDate: string;
-  tradingHour: string;
-}
-
-interface HolidayData {
-  data: Holiday[];
-}
-
 interface IndexData {
   symbol: string;
   name: string;
@@ -45,46 +36,11 @@ const INDICES = [
   { symbol: "DIA", name: "DOW" },
 ];
 
-// Helper to format date as YYYY-MM-DD
-function formatDate(date: Date): string {
-  return date.toISOString().split("T")[0];
-}
-
-// Check if a date is a holiday (market closed all day)
-function isHoliday(date: Date, holidays: Holiday[]): boolean {
-  const dateStr = formatDate(date);
-  return holidays.some((h) => h.atDate === dateStr && h.tradingHour === "");
-}
-
-// Check if a date is a weekend
-function isWeekend(date: Date): boolean {
-  const day = date.getDay();
-  return day === 0 || day === 6;
-}
-
-// Find next trading day (skip weekends and holidays)
-function getNextTradingDay(fromDate: Date, holidays: Holiday[]): Date {
-  const next = new Date(fromDate);
-  next.setDate(next.getDate() + 1);
-  next.setHours(9, 30, 0, 0); // 9:30 AM
-
-  // Skip weekends and holidays (max 10 days to prevent infinite loop)
-  for (let i = 0; i < 10; i++) {
-    if (!isWeekend(next) && !isHoliday(next, holidays)) {
-      return next;
-    }
-    next.setDate(next.getDate() + 1);
-  }
-  return next;
-}
-
 export default function Home() {
   const [indices, setIndices] = useState<IndexData[]>(
     INDICES.map((i) => ({ ...i, quote: null, loading: true }))
   );
   const [marketStatus, setMarketStatus] = useState<MarketStatus | null>(null);
-  const [holidays, setHolidays] = useState<Holiday[]>([]);
-  const [countdown, setCountdown] = useState<string>("");
 
   // Fetch market status
   useEffect(() => {
@@ -100,22 +56,6 @@ export default function Home() {
       }
     }
     fetchMarketStatus();
-  }, []);
-
-  // Fetch holidays
-  useEffect(() => {
-    async function fetchHolidays() {
-      try {
-        const res = await fetch("/api/market-holidays");
-        if (res.ok) {
-          const data: HolidayData = await res.json();
-          setHolidays(data.data || []);
-        }
-      } catch (error) {
-        console.error("Failed to fetch holidays:", error);
-      }
-    }
-    fetchHolidays();
   }, []);
 
   // Fetch quotes for indices
@@ -140,57 +80,6 @@ export default function Home() {
     fetchQuotes();
   }, []);
 
-  // Countdown timer
-  useEffect(() => {
-    function updateCountdown() {
-      const now = new Date();
-      const nyTime = new Date(
-        now.toLocaleString("en-US", { timeZone: "America/New_York" })
-      );
-      const hours = nyTime.getHours();
-      const minutes = nyTime.getMinutes();
-
-      const marketOpen = 9 * 60 + 30; // 9:30 AM in minutes
-      const marketClose = 16 * 60; // 4:00 PM in minutes
-      const currentMinutes = hours * 60 + minutes;
-
-      const todayIsWeekend = isWeekend(nyTime);
-      const todayIsHoliday = isHoliday(nyTime, holidays);
-      const marketClosed = todayIsWeekend || todayIsHoliday;
-
-      if (marketClosed || currentMinutes >= marketClose || currentMinutes < marketOpen) {
-        // Market is closed - find next trading day
-        let baseDate = new Date(nyTime);
-        
-        // If it's before market open today and today is a trading day, market opens today
-        if (!marketClosed && currentMinutes < marketOpen) {
-          const minsUntilOpen = marketOpen - currentMinutes;
-          const h = Math.floor(minsUntilOpen / 60);
-          const m = minsUntilOpen % 60;
-          setCountdown(`${h}h ${m}m until market opens`);
-          return;
-        }
-
-        const nextTradingDay = getNextTradingDay(baseDate, holidays);
-        const msUntilOpen = nextTradingDay.getTime() - nyTime.getTime();
-        const totalMins = Math.floor(msUntilOpen / (1000 * 60));
-        const h = Math.floor(totalMins / 60);
-        const m = totalMins % 60;
-        setCountdown(`${h}h ${m}m until market opens`);
-      } else {
-        // Market is open
-        const minsUntilClose = marketClose - currentMinutes;
-        const h = Math.floor(minsUntilClose / 60);
-        const m = minsUntilClose % 60;
-        setCountdown(`${h}h ${m}m until market closes`);
-      }
-    }
-
-    updateCountdown();
-    const interval = setInterval(updateCountdown, 60000);
-    return () => clearInterval(interval);
-  }, [holidays]);
-
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold mb-8">Market Overview</h1>
@@ -210,17 +99,21 @@ export default function Home() {
               )}
             >
               {marketStatus.isOpen ? "Open" : "Closed"}
+              {marketStatus.holiday && ` (${marketStatus.holiday})`}
             </span>
           ) : (
             <span className="text-muted-foreground">Loading...</span>
           )}
         </div>
-        {countdown && (
-          <div className="flex items-center gap-2 text-muted-foreground">
-            <Clock className="h-4 w-4" />
-            <span className="text-sm">{countdown}</span>
-          </div>
-        )}
+        <a
+          href="https://www.nyse.com/markets/hours-calendars"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <span>Market Hours</span>
+          <ExternalLink className="h-3 w-3" />
+        </a>
       </div>
 
       {/* Major Indices */}
