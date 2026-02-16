@@ -45,40 +45,43 @@
 
 ## 🚀 Phases
 
-### Phase 1: Foundation ✅ (Current)
+### Phase 1: Foundation ✅
 - [x] Project setup (Next.js, Tailwind)
 - [x] Finnhub API integration
 - [x] Basic API routes (`/api/symbols`, `/api/health`)
-- [ ] Sidebar navigation layout
-- [ ] Stock symbol search (fuzzy search with Fuse.js)
-- [ ] Search page (`/search`)
+- [x] Sidebar navigation layout
+- [x] Stock symbol search (fuzzy search with Fuse.js)
+- [x] Search page (`/search`)
+- [x] Zustand store for symbols (with in-memory caching)
+- [x] Dark/light theme toggle (next-themes)
+- [x] Green money theme
 
 ---
 
-### Phase 2: Home & Market Overview
-- [ ] Home page (`/`)
-- [ ] Major indices display (S&P 500, NASDAQ, DOW)
-- [ ] Market status indicator (Open/Closed)
-- [ ] Market hours countdown (time until open/close)
+### Phase 2: Home & Market Overview ✅
+- [x] Home page (`/`)
+- [x] Major indices display (S&P 500, NASDAQ, DOW)
+- [x] Market status indicator (Open/Closed)
+- [x] Link to NYSE market hours calendar
 
 ---
 
-### Phase 3: Stock Detail Page
-- [ ] Stock detail page (`/stock/[symbol]`)
-- [ ] **Tabbed interface:**
-  - [ ] **Overview** — Price, change %, key stats
-  - [ ] **Chart** — Historical price chart
-  - [ ] **News** — Company-specific news
-  - [ ] **Insider** — Insider transactions
-  - [ ] **Filings** — SEC filings
-- [ ] Add to watchlist button
+### Phase 3: Stock Detail Page ✅
+- [x] Stock detail page (`/stock/[symbol]`)
+- [x] **Tabbed interface:**
+  - [x] **Overview** — Price, change %, key stats, company info
+  - [ ] **Chart** — Historical price chart (requires premium/alternative data)
+  - [x] **News** — Company-specific news
+  - [x] **Insider** — Insider transactions table
+  - [x] **Filings** — SEC filings list
+- [x] Add to watchlist button (placeholder, functional in Phase 4)
 
 ---
 
-### Phase 4: Watchlist
+### Phase 4: Watchlist (Current)
 - [ ] Watchlist page (`/watchlist`)
 - [ ] Add/remove stocks to watchlist
-- [ ] Persist watchlist (localStorage initially)
+- [ ] Persist watchlist (Zustand + localStorage)
 - [ ] **Mini sparkline charts** next to each stock
 - [ ] Price change indicators (up/down/neutral)
 - [ ] Quick stats (price, change %)
@@ -160,13 +163,14 @@
 
 | Layer | Tech |
 |-------|------|
-| Framework | Next.js 14 (App Router) |
-| Styling | Tailwind CSS |
+| Framework | Next.js 16 (App Router) |
+| Styling | Tailwind CSS 4 |
 | API | Finnhub (free tier, 60 req/min) |
 | Search | Fuse.js (client-side fuzzy search) |
-| Charts | TBD (Recharts, Lightweight Charts, or Tremor) |
-| State | React state / Zustand (if needed) |
-| Storage | localStorage → SQLite/Postgres later |
+| Charts | TBD (Recharts installed, Lightweight Charts, or Tremor) |
+| State | Zustand (symbols store) |
+| Theming | next-themes (dark/light mode) |
+| Storage | localStorage via Zustand persist (for watchlist) |
 
 ---
 
@@ -220,4 +224,4 @@ Reference: [finnhub.io/docs/api](https://finnhub.io/docs/api)
 
 ---
 
-*Last updated: Feb 2026*
+*Last updated: Feb 15, 2026*
