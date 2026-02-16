@@ -11,6 +11,7 @@ import {
   BookOpen,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "./theme-toggle";
 
 const navItems = [
   { href: "/", label: "Home", icon: Home },
@@ -66,8 +67,9 @@ export function Sidebar() {
         </nav>
 
         {/* Footer */}
-        <div className="border-t border-sidebar-border px-4 py-4">
-          <p className="text-xs text-sidebar-foreground/50">
+        <div className="border-t border-sidebar-border px-3 py-3">
+          <ThemeToggle />
+          <p className="mt-2 px-3 text-xs text-sidebar-foreground/50">
             Personal use only
           </p>
         </div>
