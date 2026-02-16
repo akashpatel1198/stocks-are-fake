@@ -78,17 +78,17 @@
 
 ---
 
-### Phase 4: Watchlist (Current)
-- [ ] Watchlist page (`/watchlist`)
-- [ ] Add/remove stocks to watchlist
-- [ ] Persist watchlist (Zustand + localStorage)
-- [ ] **Mini sparkline charts** next to each stock
-- [ ] Price change indicators (up/down/neutral)
-- [ ] Quick stats (price, change %)
+### Phase 4: Watchlist ✅
+- [x] Watchlist page (`/watchlist`)
+- [x] Add/remove stocks to watchlist
+- [x] Persist watchlist (Zustand + localStorage)
+- [ ] **Mini sparkline charts** next to each stock (requires premium data)
+- [x] Price change indicators (up/down/neutral)
+- [x] Quick stats (price, change %)
 
 ---
 
-### Phase 5: Charts & Quotes
+### Phase 5: Charts & Quotes (Skipped - requires premium)
 - [ ] Real-time/delayed stock quotes
 - [ ] Historical price charts (1D, 1W, 1M, 3M, 1Y, ALL)
 - [ ] Candlestick vs line chart toggle
@@ -96,22 +96,23 @@
 
 ---
 
-### Phase 6: News
-- [ ] News page (`/news`)
-- [ ] Market-wide news feed
-- [ ] Company-specific news (on stock detail page)
+### Phase 6: News ✅
+- [x] News page (`/news`)
+- [x] Market-wide news feed
+- [x] Company-specific news (on stock detail page)
 - [ ] Sentiment indicators (if available via Finnhub)
-- [ ] News filtering/search
+- [x] News filtering/search
 
 ---
 
-### Phase 7: Insider Trading & SEC Filings
-- [ ] Insider page (`/insider`)
-- [ ] Insider transactions feed (buys/sells by executives)
-- [ ] SEC filings list (10-K, 10-Q, 8-K, etc.)
-- [ ] Filter by company or browse all
-- [ ] "Notable insider activity" highlights
-- [ ] Link to full filing documents
+### Phase 7: Insider Trading & SEC Filings ✅
+- [x] Insider page (`/insider`)
+- [x] Insider transactions feed (buys/sells by executives)
+- [x] SEC filings list (10-K, 10-Q, 8-K, etc.)
+- [x] Filter by company (search-based)
+- [x] "Notable insider activity" highlights (>$1M transactions)
+- [x] Link to full filing documents
+- [x] Insider sentiment API route (created, not yet displayed)
 
 *Inspiration: [QuiverQuant](https://www.quiverquant.com/)*
 
