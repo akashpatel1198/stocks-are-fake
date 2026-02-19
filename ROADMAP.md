@@ -70,7 +70,7 @@
 - [x] Stock detail page (`/stock/[symbol]`)
 - [x] **Tabbed interface:**
   - [x] **Overview** — Price, change %, key stats, company info
-  - [ ] **Chart** — Historical price chart (requires premium/alternative data)
+  - [ ] **Chart** — ⚠️ *Blocked: requires premium API (historical candles)*
   - [x] **News** — Company-specific news
   - [x] **Insider** — Insider transactions table
   - [x] **Filings** — SEC filings list
@@ -82,13 +82,16 @@
 - [x] Watchlist page (`/watchlist`)
 - [x] Add/remove stocks to watchlist
 - [x] Persist watchlist (Zustand + localStorage)
-- [ ] **Mini sparkline charts** next to each stock (requires premium data)
+- [ ] **Mini sparkline charts** — ⚠️ *Blocked: requires premium API (historical candles)*
 - [x] Price change indicators (up/down/neutral)
 - [x] Quick stats (price, change %)
 
 ---
 
-### Phase 5: Charts & Quotes (Skipped - requires premium)
+### Phase 5: Charts & Quotes ⏸️ SKIPPED
+> ⚠️ **Blocked by Finnhub free tier** — Historical candle data (`/stock/candle`) returns empty on free plan.
+> Could revisit with alternative data source (Yahoo Finance, Alpha Vantage, etc.)
+
 - [ ] Real-time/delayed stock quotes
 - [ ] Historical price charts (1D, 1W, 1M, 3M, 1Y, ALL)
 - [ ] Candlestick vs line chart toggle
@@ -100,7 +103,7 @@
 - [x] News page (`/news`)
 - [x] Market-wide news feed
 - [x] Company-specific news (on stock detail page)
-- [ ] Sentiment indicators (if available via Finnhub)
+- [ ] Sentiment indicators — ⚠️ *Blocked: Finnhub news sentiment requires premium*
 - [x] News filtering/search
 
 ---
@@ -112,32 +115,95 @@
 - [x] Filter by company (search-based)
 - [x] "Notable insider activity" highlights (>$1M transactions)
 - [x] Link to full filing documents
-- [x] Insider sentiment API route (created, not yet displayed)
+- [x] Insider sentiment API (`/api/insider-sentiment`)
+- [x] Insider sentiment summary card (MSPR, buy/sell months, net change)
+- [x] Beginner-friendly tooltips explaining finance jargon
 
 *Inspiration: [QuiverQuant](https://www.quiverquant.com/)*
 
 ---
 
-### Phase 8: 📚 Learn Section (Documentation/Reference)
-> Static educational content — no API, just well-organized text.
+### Phase 8: 📚 Learn Section (Documentation/Reference) ✅
+> Static educational content for **true beginners** — organized as a learning path.
+> Goal: Someone new to finance wants to start investing (mainly stocks).
 
-- [ ] Learn page (`/learn`)
-- [ ] **Fuzzy search across all docs**
-- [ ] Sidebar table of contents
+- [x] Learn page (`/learn`)
+- [x] **Fuzzy search across all docs**
+- [x] Sidebar table of contents
+- [x] Previous/next navigation between topics
 
-**Topics:**
+**Topics (in learning order):**
 
-- [ ] **Market Basics**
-  - What is the stock market?
-  - How do stocks work?
-  - Market hours & exchanges (NYSE, NASDAQ)
+- [x] **1. Getting Ready to Invest**
+  - Are you ready? (emergency fund, high-interest debt first)
+  - Setting financial goals
+  - Understanding your risk tolerance
+  - Time horizon: when do you need this money?
+
+- [x] **2. Why Investing Matters**
+  - Inflation: why cash loses value over time
+  - Compound interest: the 8th wonder of the world
+  - Time in market vs timing the market
+  - The power of starting early (with examples)
+
+- [x] **3. How the Stock Market Works**
+  - What is a stock? (ownership in a company)
+  - Stock exchanges (NYSE, NASDAQ)
+  - Market hours & holidays
   - Bull vs bear markets
+  - How prices are determined (supply & demand)
 
-- [ ] **Trading Concepts**
-  - Order types (market, limit, stop-loss)
-  - Bid/ask spread
-  - Volume & liquidity
-  - Short selling
+- [x] **4. Types of Investments**
+  - Stocks (individual company ownership)
+  - ETFs & Index Funds ⭐ (recommended for beginners)
+  - Mutual Funds (brief comparison)
+  - Bonds (brief overview)
+  - Why ETFs are great for starting out
+
+- [x] **5. Your First Investment**
+  - Choosing a brokerage (what to look for)
+  - Types of accounts (taxable vs retirement)
+  - Placing your first order
+  - Dollar-cost averaging (invest regularly, reduce stress)
+  - Fractional shares (start with any amount)
+
+- [x] **6. Retirement Accounts**
+  - 401(k) basics & employer match ("free money")
+  - Traditional vs Roth IRA
+  - Why to prioritize tax-advantaged accounts
+
+- [x] **7. Reading Stock Data**
+  - Stock quotes & tickers
+  - Key metrics (P/E ratio, market cap, EPS, dividend yield)
+  - What the numbers on this site mean
+  - How to research a company
+
+- [x] **8. Common Mistakes to Avoid**
+  - Emotional investing (fear & greed)
+  - Trying to time the market
+  - Chasing hot tips / FOMO
+  - Not diversifying
+  - Panic selling during downturns
+  - Ignoring fees
+
+- [x] **9. Glossary**
+  - A-Z financial terms reference
+
+---
+
+### Phase 8.5: Expand Tooltips Site-wide
+> After Learn section is complete, add beginner-friendly tooltips to other pages.
+
+- [ ] Home page (indices, market status terminology)
+- [ ] Stock detail page (P/E, market cap, EPS, etc.)
+- [ ] Watchlist page (price change, volume)
+- [ ] News page (sentiment, if added later)
+- [ ] Link tooltips to relevant Learn pages where helpful
+
+---
+
+### Phase 9: 📈 Advanced Topics (Future)
+> Content for users who've mastered the basics. Lower priority.
 
 - [ ] **Options 101**
   - What are options?
@@ -145,18 +211,21 @@
   - Strike price & expiration
   - Basic strategies (covered call, protective put)
 
-- [ ] **Bonds & Fixed Income**
-  - What are bonds?
-  - Yield & interest rates
-  - Government vs corporate bonds
+- [ ] **Trading Concepts**
+  - Order types deep dive (market, limit, stop-loss, stop-limit)
+  - Bid/ask spread & slippage
+  - Volume & liquidity
+  - Short selling
 
-- [ ] **Reading Financial Data**
-  - How to read a stock chart
-  - Key metrics (P/E, market cap, EPS)
-  - Understanding SEC filings
+- [ ] **Bonds & Fixed Income (Deep Dive)**
+  - Bond pricing & yields
+  - Duration & interest rate risk
+  - Government vs corporate vs municipal
 
-- [ ] **Glossary**
-  - A-Z financial terms reference
+- [ ] **Technical Analysis Basics**
+  - Reading candlestick charts
+  - Support & resistance
+  - Common indicators (moving averages, RSI)
 
 ---
 
@@ -179,17 +248,18 @@
 
 Reference: [finnhub.io/docs/api](https://finnhub.io/docs/api)
 
-| Feature | Endpoint |
-|---------|----------|
-| Stock symbols | `/stock/symbol?exchange=US` |
-| Quote | `/quote?symbol=AAPL` |
-| Company profile | `/stock/profile2?symbol=AAPL` |
-| Company news | `/company-news?symbol=AAPL` |
-| Market news | `/news?category=general` |
-| Insider transactions | `/stock/insider-transactions?symbol=AAPL` |
-| SEC filings | `/stock/filings?symbol=AAPL` |
-| Candles (historical) | `/stock/candle?symbol=AAPL&resolution=D&from=...&to=...` |
-| Market status | `/stock/market-status?exchange=US` |
+| Feature | Endpoint | Free Tier |
+|---------|----------|-----------|
+| Stock symbols | `/stock/symbol?exchange=US` | ✅ |
+| Quote | `/quote?symbol=AAPL` | ✅ |
+| Company profile | `/stock/profile2?symbol=AAPL` | ✅ |
+| Company news | `/company-news?symbol=AAPL` | ✅ |
+| Market news | `/news?category=general` | ✅ |
+| Insider transactions | `/stock/insider-transactions?symbol=AAPL` | ✅ |
+| Insider sentiment | `/stock/insider-sentiment?symbol=AAPL` | ✅ |
+| SEC filings | `/stock/filings?symbol=AAPL` | ✅ |
+| Candles (historical) | `/stock/candle?symbol=AAPL&resolution=D&from=...&to=...` | ❌ Premium |
+| Market status | `/stock/market-status?exchange=US` | ✅ |
 
 ---
 
@@ -213,7 +283,24 @@ Reference: [finnhub.io/docs/api](https://finnhub.io/docs/api)
 - [ ] Watchlist groups/tags
 - [ ] Personal notes on stocks
 - [ ] Top movers (gainers/losers)
-- [ ] "Explain this" tooltips linking to Learn
+
+---
+
+## ⚠️ Premium API Limitations
+
+The following features are **blocked by Finnhub's free tier**:
+
+| Feature | Reason | Workaround |
+|---------|--------|------------|
+| Historical price charts | `/stock/candle` returns empty array | Use alternative API (Yahoo Finance, Alpha Vantage) |
+| Watchlist sparklines | Requires candle data | Same as above |
+| News sentiment scores | Premium-only field | Could use external NLP service |
+| Real-time quotes | WebSocket requires premium | Polling with `/quote` works but is delayed |
+
+**Alternative data sources to consider:**
+- [Yahoo Finance](https://www.yahoofinanceapi.com/) — Free historical data
+- [Alpha Vantage](https://www.alphavantage.co/) — Free tier with historical data
+- [Polygon.io](https://polygon.io/) — Free tier available
 
 ---
 
@@ -226,3 +313,20 @@ Reference: [finnhub.io/docs/api](https://finnhub.io/docs/api)
 ---
 
 *Last updated: Feb 15, 2026*
+
+---
+
+## 📊 Progress Summary
+
+| Phase | Status |
+|-------|--------|
+| Phase 1: Foundation | ✅ Complete |
+| Phase 2: Home & Market Overview | ✅ Complete |
+| Phase 3: Stock Detail Page | ✅ Complete (chart blocked) |
+| Phase 4: Watchlist | ✅ Complete (sparklines blocked) |
+| Phase 5: Charts & Quotes | ⏸️ Skipped (premium API) |
+| Phase 6: News | ✅ Complete |
+| Phase 7: Insider Trading | ✅ Complete |
+| Phase 8: Learn Section | ✅ Complete |
+| Phase 8.5: Expand Tooltips | 🔄 **Up Next** |
+| Phase 9: Advanced Topics | ⏳ Future |
