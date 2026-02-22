@@ -170,7 +170,7 @@ export default function TopicPage() {
       )}
 
       {/* Main Content */}
-      <main className="flex-1 min-w-0 p-8 max-w-3xl">
+      <main className="flex-1 min-w-0 p-8 max-w-4xl">
         {/* Breadcrumb */}
         <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
           <Link href="/learn" className="hover:text-foreground transition-colors">

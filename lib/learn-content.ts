@@ -15,297 +15,11 @@ export interface Topic {
 
 export const topics: Topic[] = [
   {
-    slug: "getting-ready",
-    title: "Getting Ready to Invest",
-    description: "Make sure you're financially prepared before putting money in the market.",
-    icon: "🎯",
-    order: 1,
-    sections: [
-      {
-        id: "are-you-ready",
-        title: "Are You Ready to Invest?",
-        content: `Before you invest a single dollar, you need to have your financial foundation in place. Investing while carrying high-interest debt or without an emergency fund is like building a house on sand.
-
-**The Pre-Investment Checklist:**
-
-1. **Emergency Fund First** — Save 3-6 months of living expenses in a high-yield savings account. This money should be easily accessible (not invested) for unexpected expenses like car repairs, medical bills, or job loss.
-
-2. **Pay Off High-Interest Debt** — If you have credit card debt at 20% interest, paying it off is a guaranteed 20% return. That's better than most investments! Focus on debt above 7-8% interest before investing.
-
-3. **Stable Income** — You should have a reliable income source. Investing money you might need next month is gambling, not investing.
-
-4. **Budget in Place** — Know where your money goes each month. You can't invest consistently if you don't know how much you can afford to set aside.
-
-**Why This Order Matters:**
-
-The stock market goes up AND down. If you invest without an emergency fund, a market downturn combined with an unexpected expense could force you to sell your investments at a loss. That's the worst-case scenario.`,
-      },
-      {
-        id: "financial-goals",
-        title: "Setting Financial Goals",
-        content: `Investing without goals is like driving without a destination — you'll move, but you might not end up where you want to be.
-
-**Common Investment Goals:**
-
-- **Retirement** — The most common goal. You're investing money you won't need for 20-40 years.
-- **House Down Payment** — Saving for a home in 5-10 years.
-- **Children's Education** — College funds for kids 10-18 years away.
-- **Financial Independence** — Building enough wealth to make work optional.
-- **Large Purchase** — A car, wedding, or vacation in 2-5 years.
-
-**Why Goals Matter:**
-
-Your goals determine your strategy:
-- **Long-term goals (10+ years)** → Can afford more risk, mostly stocks
-- **Medium-term goals (5-10 years)** → Balanced approach, mix of stocks and bonds
-- **Short-term goals (under 5 years)** → Less risk, more stable investments
-
-**Be Specific:**
-
-Instead of "I want to save money," try:
-- "I want $50,000 for a house down payment in 7 years"
-- "I want $1,000,000 for retirement in 30 years"
-
-Specific goals let you calculate how much to invest each month and track your progress.`,
-      },
-      {
-        id: "risk-tolerance",
-        title: "Understanding Your Risk Tolerance",
-        content: `Risk tolerance is your ability — both financially AND emotionally — to handle investment losses.
-
-**The Two Types of Risk Tolerance:**
-
-1. **Financial Risk Tolerance** — Can you afford to lose money? If you need the money in 2 years, you can't afford much risk. If you won't touch it for 30 years, you can handle more volatility.
-
-2. **Emotional Risk Tolerance** — How will you FEEL when your investments drop 30%? This happens. If you'll panic and sell, you need a more conservative approach.
-
-**A Simple Test:**
-
-Imagine you invest $10,000. The market drops and your investment is now worth $7,000. What would you do?
-
-- **A)** Sell everything — I can't handle this
-- **B)** Stop looking and wait it out nervously
-- **C)** Do nothing, this is normal
-- **D)** Buy more while prices are low
-
-If you answered A or B, you may need a more conservative portfolio. C and D indicate higher risk tolerance.
-
-**Risk Tolerance Changes:**
-
-- **Age** — Generally, younger investors can take more risk (more time to recover)
-- **Income stability** — Steady job = can handle more risk
-- **Existing wealth** — More savings = can handle more risk
-- **Personality** — Some people just sleep better with safer investments
-
-There's no right or wrong risk tolerance. The best portfolio is one you can stick with through good times AND bad.`,
-      },
-      {
-        id: "time-horizon",
-        title: "Time Horizon: When Do You Need This Money?",
-        content: `Your time horizon is the single most important factor in choosing investments.
-
-**Why Time Matters:**
-
-The stock market is volatile in the short term but has historically always gone up over long periods. Here's the key insight:
-
-- **1 year** — Stocks can be up 30% or down 30%. Unpredictable.
-- **10 years** — Much more likely to be positive, but crashes happen.
-- **20+ years** — Historically, the US stock market has never lost money over any 20-year period.
-
-**Matching Time Horizon to Investments:**
-
-| Time Horizon | Risk Level | Typical Mix |
-|--------------|------------|-------------|
-| Under 2 years | Very Low | Savings account, CDs |
-| 2-5 years | Low | Mostly bonds, some stocks |
-| 5-10 years | Moderate | Mix of stocks and bonds |
-| 10-20 years | Moderate-High | Mostly stocks |
-| 20+ years | High | Almost all stocks |
-
-**The Big Mistake:**
-
-Many beginners invest money they need soon in stocks, then panic when the market drops. They're forced to sell at a loss because they needed the money.
-
-**Rule of Thumb:**
-
-Money you need within 5 years probably shouldn't be in stocks. Money you won't touch for 10+ years should probably be mostly in stocks.`,
-      },
-    ],
-  },
-  {
-    slug: "why-invest",
-    title: "Why Investing Matters",
-    description: "Understand inflation, compound interest, and why keeping cash isn't safe.",
-    icon: "💡",
-    order: 2,
-    sections: [
-      {
-        id: "inflation",
-        title: "Inflation: Why Cash Loses Value",
-        content: `Here's an uncomfortable truth: money sitting in a regular savings account is slowly losing value.
-
-**What Is Inflation?**
-
-Inflation is the gradual increase in prices over time. The same $100 buys less stuff each year.
-
-- In 2000, a movie ticket cost about $5. Now it's $12-15.
-- In 1990, the average new car cost $15,000. Now it's over $45,000.
-
-**The Numbers:**
-
-Historical US inflation averages about 3% per year. This means:
-- $100 today = $97 in purchasing power next year
-- $100 today = $74 in purchasing power in 10 years
-- $100 today = $55 in purchasing power in 20 years
-
-**The Savings Account Problem:**
-
-Most savings accounts pay 0.5-1% interest. If inflation is 3%, your money loses 2% of its purchasing power every year — even though the number in your account looks the same.
-
-**Why Investing Beats Inflation:**
-
-The stock market has historically returned about 7-10% per year (after inflation). This means your money actually GROWS in purchasing power over time.
-
-| Strategy | $10,000 after 20 years | Real Value (after inflation) |
-|----------|------------------------|------------------------------|
-| Under mattress | $10,000 | ~$5,500 |
-| Savings account (1%) | $12,200 | ~$6,700 |
-| Stocks (7% real return) | $38,700 | ~$38,700 |
-
-**The Bottom Line:**
-
-Not investing isn't "playing it safe." It's guaranteeing that your money will buy less over time.`,
-      },
-      {
-        id: "compound-interest",
-        title: "Compound Interest: The 8th Wonder of the World",
-        content: `Albert Einstein allegedly called compound interest "the eighth wonder of the world." Whether or not he said it, the math is genuinely remarkable.
-
-**What Is Compound Interest?**
-
-Compound interest means you earn interest on your interest. Your money makes money, and then that money makes more money.
-
-**A Simple Example:**
-
-You invest $1,000 at 10% annual return:
-- Year 1: $1,000 → $1,100 (earned $100)
-- Year 2: $1,100 → $1,210 (earned $110)
-- Year 3: $1,210 → $1,331 (earned $121)
-- Year 10: $2,594
-- Year 20: $6,727
-- Year 30: $17,449
-
-You turned $1,000 into $17,449 by doing absolutely nothing except waiting.
-
-**The Rule of 72:**
-
-A handy trick: divide 72 by your annual return to find how long it takes to double your money.
-
-- At 6% return: 72 ÷ 6 = 12 years to double
-- At 8% return: 72 ÷ 8 = 9 years to double
-- At 10% return: 72 ÷ 10 = 7.2 years to double
-
-**Why Small Amounts Matter:**
-
-$200/month invested at 8% return:
-- After 10 years: $36,589
-- After 20 years: $117,804
-- After 30 years: $298,072
-- After 40 years: $698,502
-
-You contributed $96,000 total ($200 × 480 months). Compound interest gave you an extra $602,502 for free.
-
-**The Key Insight:**
-
-Time is your greatest asset. The earlier you start, the more time compound interest has to work its magic.`,
-      },
-      {
-        id: "time-in-market",
-        title: "Time IN the Market vs. Timing the Market",
-        content: `One of the most common beginner mistakes is trying to time the market — buying low and selling high by predicting price movements.
-
-**The Problem With Market Timing:**
-
-It sounds logical: sell before crashes, buy before rallies. But it requires being right TWICE — when to sell AND when to buy back in.
-
-Research consistently shows that even professional fund managers can't reliably time the market. Why would you be able to?
-
-**What Happens If You Miss the Best Days:**
-
-Looking at the S&P 500 over 20 years (2003-2022):
-- Stayed fully invested: 9.8% annual return
-- Missed the 10 best days: 5.6% annual return
-- Missed the 20 best days: 2.9% annual return
-- Missed the 30 best days: 0.8% annual return
-
-Many of the best days happen right after the worst days — when panicked investors have already sold.
-
-**A Better Approach:**
-
-Instead of trying to time the market:
-1. **Invest consistently** — Same amount every month regardless of market conditions
-2. **Stay invested** — Don't sell during downturns
-3. **Think long-term** — Ignore daily fluctuations
-
-**Dollar-Cost Averaging:**
-
-When you invest the same amount regularly, you automatically buy more shares when prices are low and fewer when prices are high. This smooths out your average purchase price and removes the stress of timing decisions.
-
-**The Bottom Line:**
-
-"Time in the market beats timing the market" isn't just a saying — it's backed by decades of data.`,
-      },
-      {
-        id: "starting-early",
-        title: "The Power of Starting Early",
-        content: `This is perhaps the most important lesson in investing: starting early matters more than almost anything else.
-
-**Meet Alex and Jordan:**
-
-- **Alex** starts investing $300/month at age 25, stops at 35 (10 years, $36,000 total invested)
-- **Jordan** starts investing $300/month at age 35, continues until 65 (30 years, $108,000 total invested)
-
-Assuming 8% annual returns, at age 65:
-- **Alex** has: $472,000 (invested for 10 years, then let it grow for 30 more)
-- **Jordan** has: $440,000 (invested for 30 years straight)
-
-Alex invested ONE-THIRD as much money but ended up with MORE because of the 10-year head start.
-
-**Why This Happens:**
-
-Compound interest accelerates over time. The earlier your money starts compounding, the more dramatic the growth.
-
-**The Real Cost of Waiting:**
-
-Every year you delay investing costs you significantly:
-
-Starting with $500/month at 8% return until age 65:
-- Start at 25: $1,745,504
-- Start at 30: $1,150,477 (34% less)
-- Start at 35: $745,180 (57% less)
-- Start at 40: $469,090 (73% less)
-
-**What If You're Starting Late?**
-
-Don't despair! Starting late is still better than never starting. You may need to:
-- Invest more each month
-- Take slightly more risk
-- Plan to work a bit longer
-
-But the math still works in your favor compared to not investing at all.
-
-**The Best Time to Start:**
-
-The best time to start investing was 10 years ago. The second best time is today.`,
-      },
-    ],
-  },
-  {
     slug: "how-market-works",
     title: "How the Stock Market Works",
     description: "Learn what stocks are, how exchanges work, and what moves prices.",
     icon: "📈",
-    order: 3,
+    order: 1,
     sections: [
       {
         id: "what-is-stock",
@@ -538,7 +252,7 @@ This theory suggests that stock prices reflect all available information. If tru
     title: "Types of Investments",
     description: "Stocks, ETFs, mutual funds, and bonds — know your options.",
     icon: "🎨",
-    order: 4,
+    order: 2,
     sections: [
       {
         id: "individual-stocks",
@@ -749,7 +463,7 @@ The "boring" strategy of buying index funds and holding forever beats most "exci
     title: "Your First Investment",
     description: "Practical steps to open an account and make your first purchase.",
     icon: "🚀",
-    order: 5,
+    order: 3,
     sections: [
       {
         id: "choosing-brokerage",
@@ -965,7 +679,7 @@ Fractional shares are fantastic. They mean you can start investing TODAY with wh
     title: "Retirement Accounts",
     description: "401(k), IRA, and Roth — understand the tax-advantaged accounts.",
     icon: "🏦",
-    order: 6,
+    order: 4,
     sections: [
       {
         id: "401k",
@@ -1112,7 +826,7 @@ The Roth example assumes you'd pay 25% in taxes at the end. The actual benefit d
     title: "Reading Stock Data",
     description: "Understand quotes, metrics, and how to research companies.",
     icon: "📊",
-    order: 7,
+    order: 5,
     sections: [
       {
         id: "stock-quotes",
@@ -1311,7 +1025,7 @@ Honestly, most beginners shouldn't pick individual stocks. Index funds are simpl
     title: "Common Mistakes to Avoid",
     description: "Learn from others' errors — emotional investing, timing, and more.",
     icon: "⚠️",
-    order: 8,
+    order: 6,
     sections: [
       {
         id: "emotional-investing",
@@ -1594,7 +1308,7 @@ Every dollar paid in fees is a dollar you don't keep. Minimize fees relentlessly
     title: "Glossary",
     description: "A-Z reference of common investing terms.",
     icon: "📖",
-    order: 9,
+    order: 7,
     sections: [
       {
         id: "a-d",

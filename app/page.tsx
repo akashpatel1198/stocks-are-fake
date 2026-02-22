@@ -169,6 +169,33 @@ export default function Home() {
           </div>
         ))}
       </div>
+
+      {/* Philosophy */}
+      <div className="mt-16 pt-8 border-t border-border max-w-3xl">
+        <h2 className="text-lg font-semibold mb-4">Why This Exists</h2>
+        <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+          <p>
+            This isn&apos;t a site about getting rich quick. It&apos;s not here to sell you on the idea that
+            the stock market is your ticket to wealth, or that you just need to &quot;start early&quot; and
+            &quot;let compound interest work its magic.&quot; That narrative ignores the reality that the
+            market is largely a wealth transfer mechanism that benefits those who already have capital.
+          </p>
+          <p>
+            The stock market has historically been a tool for the wealthy to grow their wealth
+            exponentially while wages stagnate and the middle class shrinks.
+          </p>
+          <p>
+            This site is about education. Financial literacy matters regardless of your
+            economic philosophy or personal goals. Understanding how markets work, what the terminology
+            means, and how to read financial data is valuable knowledge — whether you choose to
+            participate in the market or simply want to understand the system you live within.
+          </p>
+          <p>
+            Your reasons for wanting this knowledge are your own. This site just explains
+            how it actually works.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

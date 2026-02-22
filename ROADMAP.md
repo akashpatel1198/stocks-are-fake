@@ -63,6 +63,7 @@
 - [x] Major indices display (S&P 500, NASDAQ, DOW)
 - [x] Market status indicator (Open/Closed)
 - [x] Link to NYSE market hours calendar
+- [x] "Why This Exists" philosophy note — education-focused, no "get rich" narrative
 
 ---
 
@@ -124,8 +125,8 @@
 ---
 
 ### Phase 8: 📚 Learn Section (Documentation/Reference) ✅
-> Static educational content for **true beginners** — organized as a learning path.
-> Goal: Someone new to finance wants to start investing (mainly stocks).
+> Static educational content — organized as a learning path.
+> Goal: Financial literacy for those who want to understand how stocks and markets actually work. No prescriptive "get rich" advice — just knowledge.
 
 - [x] Learn page (`/learn`)
 - [x] **Fuzzy search across all docs**
@@ -134,51 +135,39 @@
 
 **Topics (in learning order):**
 
-- [x] **1. Getting Ready to Invest**
-  - Are you ready? (emergency fund, high-interest debt first)
-  - Setting financial goals
-  - Understanding your risk tolerance
-  - Time horizon: when do you need this money?
-
-- [x] **2. Why Investing Matters**
-  - Inflation: why cash loses value over time
-  - Compound interest: the 8th wonder of the world
-  - Time in market vs timing the market
-  - The power of starting early (with examples)
-
-- [x] **3. How the Stock Market Works**
+- [x] **1. How the Stock Market Works**
   - What is a stock? (ownership in a company)
   - Stock exchanges (NYSE, NASDAQ)
   - Market hours & holidays
   - Bull vs bear markets
   - How prices are determined (supply & demand)
 
-- [x] **4. Types of Investments**
+- [x] **2. Types of Investments**
   - Stocks (individual company ownership)
-  - ETFs & Index Funds ⭐ (recommended for beginners)
+  - ETFs & Index Funds
   - Mutual Funds (brief comparison)
   - Bonds (brief overview)
-  - Why ETFs are great for starting out
+  - Why ETFs are common for starting out
 
-- [x] **5. Your First Investment**
+- [x] **3. Your First Investment**
   - Choosing a brokerage (what to look for)
   - Types of accounts (taxable vs retirement)
   - Placing your first order
-  - Dollar-cost averaging (invest regularly, reduce stress)
-  - Fractional shares (start with any amount)
+  - Dollar-cost averaging
+  - Fractional shares
 
-- [x] **6. Retirement Accounts**
-  - 401(k) basics & employer match ("free money")
+- [x] **4. Retirement Accounts**
+  - 401(k) basics & employer match
   - Traditional vs Roth IRA
-  - Why to prioritize tax-advantaged accounts
+  - Tax-advantaged accounts explained
 
-- [x] **7. Reading Stock Data**
+- [x] **5. Reading Stock Data**
   - Stock quotes & tickers
   - Key metrics (P/E ratio, market cap, EPS, dividend yield)
   - What the numbers on this site mean
   - How to research a company
 
-- [x] **8. Common Mistakes to Avoid**
+- [x] **6. Common Mistakes to Avoid**
   - Emotional investing (fear & greed)
   - Trying to time the market
   - Chasing hot tips / FOMO
@@ -186,8 +175,9 @@
   - Panic selling during downturns
   - Ignoring fees
 
-- [x] **9. Glossary**
+- [x] **7. Glossary**
   - A-Z financial terms reference
+
 
 ---
 

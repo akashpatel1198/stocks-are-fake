@@ -18,7 +18,7 @@ export default function LearnPage() {
   const isSearching = searchQuery.trim().length >= 2;
 
   return (
-    <div className="p-8 max-w-4xl">
+    <div className="p-8">
       {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
@@ -28,7 +28,7 @@ export default function LearnPage() {
           <h1 className="text-3xl font-bold">Learn to Invest</h1>
         </div>
         <p className="text-muted-foreground">
-          A beginner-friendly guide to understanding the stock market and starting your investment journey.
+          A no-nonsense guide to understanding how the stock market actually works.
         </p>
       </div>
 
@@ -74,7 +74,7 @@ export default function LearnPage() {
             </div>
           ) : (
             <p className="text-muted-foreground text-center py-8">
-              Try searching for &quot;compound interest&quot;, &quot;ETF&quot;, or &quot;401k&quot;
+              Try searching for &quot;stock&quot;, &quot;ETF&quot;, or &quot;P/E ratio&quot;
             </p>
           )}
         </div>
@@ -145,11 +145,10 @@ export default function LearnPage() {
             ))}
           </div>
 
-          {/* Footer Note */}
+          {/* Disclaimer */}
           <div className="mt-8 p-4 rounded-lg bg-muted/50 text-sm text-muted-foreground">
             <p>
               <strong>Note:</strong> This content is for educational purposes only and is not financial advice.
-              Always do your own research and consider consulting a financial advisor for personalized guidance.
             </p>
           </div>
         </>
