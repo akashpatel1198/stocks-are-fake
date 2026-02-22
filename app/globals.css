@@ -123,3 +123,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .duration-400 {
+    transition-duration: 400ms;
+  }
+}
