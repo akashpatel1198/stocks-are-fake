@@ -177,7 +177,7 @@ export default function Home() {
           {[
             "This isn't here to sell you on the idea that the stock market is your ticket to wealth.",
             "This site is about education. Financial literacy matters regardless of your economic philosophy or personal goals. Understanding how markets work, what the terminology means, and how to read financial data is valuable knowledge. Whether you choose to participate in the market or simply want to understand the system you live within.",
-            "Your reasons for wanting this knowledge are your own. This site just explains how it actually works.",
+            "Your reasons for wanting this knowledge are your own. I am a finance noob; I am learning myself. This site attempts explains how it all actually works.",
           ].map((text, i) => (
             <p key={i}>
               {text}
@@ -191,7 +191,10 @@ export default function Home() {
         <h2 className="text-lg font-semibold mb-4">Personal Philosophy</h2>
         <div className="flex flex-col gap-4 text-base text-muted-foreground leading-relaxed">
           <p>
-            The stock market is largely a wealth transfer mechanism. Those with capital grow it exponentially while wages stagnate. The &quot;just invest early&quot; narrative ignores that most people don&apos;t have spare capital.
+            The stock market is largely a wealth transfer mechanism. Those with capital grow it exponentially while wages stagnate. The &quot;just invest early&quot; narrative ignores that most people don&apos;t have spare capital. The &quot;do your research and make smart trades&quot; advice assumes a level playing field that doesn&apos;t exist. Without insider access, it&apos;s gambling against professionals who see your cards.
+          </p>
+          <p>
+            This critique applies to active trading, not long-term passive investing. Buying and holding index funds doesn&apos;t require beating anyone or having inside information. You&apos;re just riding overall market growth. Historically, holding an S&amp;P 500 index fund for 20+ years has returned around 7-10% annually, beating inflation and savings accounts. That&apos;s genuinely accessible and doesn&apos;t require an edge.
           </p>
           <p>
             Studies consistently show that{" "}
@@ -232,7 +235,7 @@ export default function Home() {
             , one of the hedge funds betting against GameStop, lost 53% of its value in a single month and needed a $2.75 billion emergency bailout from Citadel and Point72. They shut down entirely in 2022.
           </p>
           <p>
-            For a brief moment, regular people used the same tactics Wall Street uses every day: coordinated buying, understanding market mechanics, and exploiting over-leveraged positions. The difference? When hedge funds do it, it&apos;s called &quot;smart investing.&quot; When retail does it, the system intervenes.
+            For a brief moment, regular people used the same tactics Wall Street uses every day: coordinated buying, understanding market mechanics, and exploiting over-leveraged positions. When hedge funds do it, it&apos;s called &quot;smart investing.&quot; When retail does it, the system intervenes.
           </p>
         </div>
       </div>
@@ -248,21 +251,21 @@ export default function Home() {
             <a href="https://www.cnbc.com/2021/02/17/robinhood-faces-lawsuits-after-gamestop-trading-halt.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
               Over 50 federal lawsuits were filed
             </a>
-            . Investors alleged Robinhood colluded with Citadel Securities to protect hedge fund positions. The cases were dismissed. The court ruled that Robinhood&apos;s customer agreement permitted the restrictions. The fine print protected them.
+            . Investors alleged Robinhood colluded with Citadel Securities to protect hedge fund positions. The cases were dismissed because the courts ruled that Robinhood&apos;s customer agreement permitted the restrictions. Essentially, their fine print was used to protect them and their rich friends at the expense of their users.
           </p>
           <p>
-            Here&apos;s what most people don&apos;t know: Robinhood makes about 75% of its revenue from{" "}
+            Robinhood makes about 75% of its revenue from{" "}
             <a href="https://www.reuters.com/markets/us/sec-eyes-pfof-reforms-stock-market-what-is-pfof-2022-06-08/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
               &quot;payment for order flow&quot; (PFOF)
             </a>
-            . They sell your trades to market makers like Citadel before executing them. Citadel sees what you&apos;re buying, and can trade ahead of you. This practice is banned in Canada, the UK, and Australia. In the US, it&apos;s the business model.
+            . They sell informatoin about your trades to market makers like Citadel before executing them. Citadel sees what you&apos;re buying, and can trade ahead of you. This practice is banned in Canada, the UK, and Australia. But here in the land of the free, it&apos;s just business. 
           </p>
           <p>
-            The SEC{" "}
+            In 2022, the SEC{" "}
             <a href="https://www.sec.gov/news/press-release/2022-221" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
               charged eight social media influencers
             </a>
-            {" "}in 2022 for a $100 million pump-and-dump scheme. They promoted stocks to followers, then secretly sold while recommending others buy. The little guys got prosecuted. The big players who do this at scale? They call it market making.
+            {" "} for a $100 million pump-and-dump scheme. They promoted stocks to followers, then secretly sold while recommending others buy. These guys got prosecuted and made an example of. This practice is even more rampant in other financial systems such as crypto. But big players such as Citadel who do this at scale are called Market Makers. 
           </p>
         </div>
       </div>
@@ -283,6 +286,13 @@ export default function Home() {
             {" "}in alleged illegal profits.
           </p>
           <p>
+            This was possible because India became the{" "}
+            <a href="https://www.moneycontrol.com/news/business/markets/rbi-sebi-closely-monitoring-high-f-india-account-for-nearly-81-of-global-turnover-12751676.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              world&apos;s largest derivatives market
+            </a>
+            , accounting for 81% of global options turnover. But this massive volume was driven by retail traders using low margin requirements and leverage, not actual capital. Only 7.2% of individual traders made a profit. Jane Street, with real capital, could buy enough of the underlying stocks to move prices that millions of leveraged retail positions depended on.
+          </p>
+          <p>
             The scheme: Jane Street would buy large amounts of index stocks in the morning to artificially push prices up, while simultaneously building short positions in options that would profit when prices fell later. They made over $4 billion from India in just two years.{" "}
             <a href="https://www.reuters.com/sustainability/boards-policy-regulation/how-india-struggled-regulate-jane-streets-money-spinning-machine-2025-08-14/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
               Retail investors in India lost $21 billion over three years
@@ -290,10 +300,13 @@ export default function Home() {
             .
           </p>
           <p>
-            Jane Street claims it was just &quot;basic arbitrage.&quot; SEBI disagreed. The difference between the US and India? India actually investigated and took action.
+            Jane Street claims it was just &quot;basic arbitrage.&quot; SEBI called it a sinister scheme and actually did something about it. A US firm extracting billions from Indian retail traders got banned and had half a billion seized. In America, that&apos;s called a successful quarter.
           </p>
           <p>
-            This isn&apos;t unique to Jane Street. The pattern repeats globally: sophisticated firms extract billions from markets where retail participation is high, using strategies that are technically legal or exist in regulatory gray zones. When caught, they pay fines that amount to a fraction of their profits. The game continues.
+            There&apos;s an unwritten rule in finance: extract wealth from regular people and you&apos;re a genius, a &quot;market maker,&quot; an innovator. But steal from the wealthy? That&apos;s fraud. Bernie Madoff learned this the hard way. His scheme ran for decades until he made the mistake of losing rich people&apos;s money. Then suddenly the SEC cared.
+          </p>
+          <p>
+            This pattern repeats globally: sophisticated firms extract billions from markets where retail participation is high, using strategies that exist in regulatory gray zones. When caught, they pay fines that amount to a fraction of their profits. The game continues.
           </p>
         </div>
       </div>
