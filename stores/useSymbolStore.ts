@@ -2,8 +2,12 @@ import { create } from "zustand";
 
 export interface Symbol {
   symbol: string;
+  displaySymbol: string;
   description: string;
   type: string;
+  currency?: string;
+  figi?: string;
+  mic?: string;
 }
 
 interface SymbolStore {
@@ -21,7 +25,6 @@ export const useSymbolStore = create<SymbolStore>((set, get) => ({
   hasFetched: false,
 
   fetchSymbols: async () => {
-    // Skip if already fetched
     if (get().hasFetched) return;
 
     set({ loading: true, error: null });
