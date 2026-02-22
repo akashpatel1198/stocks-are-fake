@@ -15,11 +15,12 @@ import { ThemeToggle } from "./theme-toggle";
 
 const navItems = [
   { href: "/", label: "Home", icon: Home },
+  { href: "/learn", label: "Learn", icon: BookOpen },
   { href: "/search", label: "Search", icon: Search },
   { href: "/watchlist", label: "Watchlist", icon: Eye },
   { href: "/news", label: "News", icon: Newspaper },
   { href: "/insider", label: "Insider", icon: UserSearch },
-  { href: "/learn", label: "Learn", icon: BookOpen },
+  
 ];
 
 export function Sidebar() {
