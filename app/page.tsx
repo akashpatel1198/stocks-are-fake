@@ -255,7 +255,19 @@ export default function Home() {
             <a href="https://www.reuters.com/markets/us/sec-eyes-pfof-reforms-stock-market-what-is-pfof-2022-06-08/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
               &quot;payment for order flow&quot; (PFOF)
             </a>
-            . They sell informatoin about your trades to market makers like Citadel before executing them. Citadel sees what you&apos;re buying, and can trade ahead of you. This practice is banned in Canada, the UK, and Australia. But here in the land of the free, it&apos;s just business. 
+            . They sell informatoin about your trades to market makers like Citadel before executing them. Citadel sees what you&apos;re buying, and can trade ahead of you. This practice is banned in Canada, the UK, and Australia.{" "}
+            <span 
+              style={{
+                background: 'linear-gradient(90deg, #9ca3af 0%, #b08080 15%, #c97070 25%, #d4d4d4 35%, #7090c0 45%, #9ca3af 60%, #9ca3af 100%)',
+                backgroundSize: '300% 100%',
+                WebkitBackgroundClip: 'text',
+                backgroundClip: 'text',
+                color: 'transparent',
+                animation: 'usa-sweep 8s linear infinite',
+              }}
+            >
+              But here in the land of the free, it&apos;s just business.
+            </span> 
           </p>
           <p>
             In 2022, the SEC{" "}

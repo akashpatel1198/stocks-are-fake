@@ -129,3 +129,30 @@
     transition-duration: 400ms;
   }
 }
+
+@keyframes usa-sweep {
+  0% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: -100% center;
+  }
+}
+
+.usa-text-sweep {
+  background: linear-gradient(
+    90deg,
+    #9ca3af 0%,
+    #9ca3af 30%,
+    #dc2626 40%,
+    #ffffff 50%,
+    #2563eb 60%,
+    #9ca3af 70%,
+    #9ca3af 100%
+  ) !important;
+  background-size: 400% 100% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+  animation: usa-sweep 6s ease-in-out infinite !important;
+}
