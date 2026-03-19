@@ -174,15 +174,12 @@ export default function Home() {
       <div className="mt-16 pt-8 border-t border-border">
         <h2 className="text-lg font-semibold mb-4">Why This Exists</h2>
         <div className="flex flex-col gap-4 text-base text-muted-foreground leading-relaxed">
-          {[
-            "This isn't here to sell you on the idea that the stock market is your ticket to wealth.",
-            "This site is about education. Financial literacy matters regardless of your economic philosophy or personal goals. Understanding how markets work, what the terminology means, and how to read financial data is valuable knowledge. Whether you choose to participate in the market or simply want to understand the system you live within.",
-            "Your reasons for wanting this knowledge are your own. I am a finance noob; I am learning myself. This site attempts explains how it all actually works.",
-          ].map((text, i) => (
-            <p key={i}>
-              {text}
-            </p>
-          ))}
+          <p>
+            This site is about education. Financial literacy matters, regardless of your personal goals, because money affects everything. Understanding how markets work, what the terminology means, and how to read financial data is valuable knowledge. Whether you choose to participate in the market or simply want to understand the system you live within.
+          </p>
+          <p className="italic text-[#7a8a80] dark:text-[#9faa9f]">
+            Disclaimer: I am a finance noob; I am learning myself. I am building this site to explain how it all actually works as I learn it myself. Eventually I might add some tooling to inform investments, but I would have to make that private dude to API restrictions.
+          </p>
         </div>
       </div>
 
