@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { TrendingUp, TrendingDown, Activity, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -41,6 +41,27 @@ export default function Home() {
     INDICES.map((i) => ({ ...i, quote: null, loading: true }))
   );
   const [marketStatus, setMarketStatus] = useState<MarketStatus | null>(null);
+  const [periodSwinging, setPeriodSwinging] = useState(false);
+  const periodRef = useRef<HTMLSpanElement>(null);
+
+  // Intersection observer for pendulum period
+  useEffect(() => {
+    const el = periodRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setTimeout(() => setPeriodSwinging(true), 2000);
+          observer.disconnect();
+        }
+      },
+      { threshold: 1.0 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   // Fetch market status
   useEffect(() => {
@@ -178,7 +199,7 @@ export default function Home() {
             This site is about education. Financial literacy matters, regardless of your personal goals, because money affects everything. Understanding how markets work, what the terminology means, and how to read financial data is valuable knowledge. Whether you choose to participate in the market or simply want to understand the system you live within.
           </p>
           <p className="italic text-[#7a8a80] dark:text-[#9faa9f]">
-            Disclaimer: I am a finance noob; I am learning myself. I am building this site to explain how it all actually works as I learn it myself. Eventually I might add some tooling to inform investments, but I would have to make that private dude to API restrictions.
+            Disclaimer: I am a finance noob; I am learning myself. I am building this site to explain how it all actually works as I learn it myself. Eventually I might add some tooling to inform investments, but I would have to make that private due to API restrictions.
           </p>
         </div>
       </div>
@@ -203,12 +224,16 @@ export default function Home() {
           <p>
             Some argue you can beat the market with an &quot;edge&quot; through research and knowing what to buy. But if you&apos;re trading on information that moves prices, someone with better access already traded on it. When news breaks, institutional traders have already positioned themselves. They have direct lines to executives, armies of analysts, and technology that processes information in microseconds. By the time you react, the price has moved.
           </p>
-          <p>
+          <p className="mb-8">
             HFT firms extract roughly{" "}
             <a href="https://www.fca.org.uk/publications/occasional-papers/occasional-paper-no-50-quantifying-high-frequency-trading-arms-race-new-methodology" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
               $5 billion annually
             </a>
-            {" "}through speed advantages alone. They can see your order coming and trade ahead of it. The playing field isn&apos;t level.
+            {" "}through speed advantages alone. They can see your order coming and trade ahead of it.{" "}
+            <span 
+              ref={periodRef}
+              className={`pendulum-period ${periodSwinging ? 'swing' : ''}`}
+            >The playing field isn&apos;t level.</span>
           </p>
         </div>
       </div>
@@ -267,7 +292,7 @@ export default function Home() {
               }}
             >
               But here in the land of the free, it&apos;s just business.
-            </span> 
+            </span>
           </p>
           <p>
             In 2022, the SEC{" "}
@@ -299,7 +324,7 @@ export default function Home() {
             <a href="https://www.moneycontrol.com/news/business/markets/rbi-sebi-closely-monitoring-high-f-india-account-for-nearly-81-of-global-turnover-12751676.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
               world&apos;s largest derivatives market
             </a>
-            , accounting for 81% of global options turnover. But this massive volume was driven by retail traders using low margin requirements and leverage, not actual capital. Only 7.2% of individual traders made a profit. Jane Street, with real capital, could buy enough of the underlying stocks to move prices that millions of leveraged retail positions depended on.
+            {" "}(don't get me started on how I think this market was caused by the culture there that measures people by their net worth), accounting for 81% of global options turnover. But this massive volume was driven by retail traders using low margin requirements and leverage, not actual capital. Only 7.2% of individual traders made a profit. Jane Street, with real capital, could buy enough of the underlying stocks to move prices that millions of leveraged retail positions depended on.
           </p>
           <p>
             The scheme: Jane Street would buy large amounts of index stocks in the morning to artificially push prices up, while simultaneously building short positions in options that would profit when prices fell later. They made over $4 billion from India in just two years.{" "}
@@ -309,13 +334,40 @@ export default function Home() {
             .
           </p>
           <p>
-            Jane Street claims it was just &quot;basic arbitrage.&quot; SEBI called it a sinister scheme and actually did something about it. A US firm extracting billions from Indian retail traders got banned and had half a billion seized. In America, that&apos;s called a successful quarter.
+            Jane Street claims it was just &quot;basic arbitrage.&quot; SEBI called it a sinister scheme and actually did something about it. A US firm extracting billions from foreign retail traders got banned and had half a billion seized. In America, that&apos;s called a successful quarter.
           </p>
           <p>
             There&apos;s an unwritten rule in finance: extract wealth from regular people and you&apos;re a genius, a &quot;market maker,&quot; an innovator. But steal from the wealthy? That&apos;s fraud. Bernie Madoff learned this the hard way. His scheme ran for decades until he made the mistake of losing rich people&apos;s money. Then suddenly the SEC cared.
           </p>
           <p>
             This pattern repeats globally: sophisticated firms extract billions from markets where retail participation is high, using strategies that exist in regulatory gray zones. When caught, they pay fines that amount to a fraction of their profits. The game continues.
+          </p>
+        </div>
+      </div>
+
+      {/* Congressional Trading */}
+      <div className="mt-12 pt-8 border-t border-border">
+        <h2 className="text-lg font-semibold mb-4">The People Who Write the Rules</h2>
+        <div className="flex flex-col gap-4 text-base text-muted-foreground leading-relaxed">
+          <p>
+            Members of Congress trade stocks while having access to non-public information and the power to pass laws that directly affect those companies. Nearly{" "}
+            <a href="https://campaignlegal.org/document/congressional-stock-trading-numbers-119th-congress" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              half of Congress owns individual stocks
+            </a>
+            . They sit on committees overseeing industries they&apos;re invested in. They get briefed on policy changes before the public knows. Then they trade.
+          </p>
+          <p>
+            The STOCK Act was supposed to fix this. It requires disclosure of trades within 45 days and technically bans insider trading by lawmakers. In practice,{" "}
+            <a href="https://www.rawstory.com/congress-members-stock-act-rawstory/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              at least 62 members violated it recently
+            </a>
+            , with some disclosures coming years late. One representative failed to report over 100 transactions worth up to $1.6 million. The penalty for your first violation? $200.
+          </p>
+          <p>
+            Paul Pelosi bought millions in Nvidia shares while his wife had access to semiconductor legislation intel. Senators accumulate crypto ETFs while chairing committees on crypto regulation. When asked about it, they say their spouses make independent decisions. The trades just happen to be suspiciously well-timed.
+          </p>
+          <p>
+            Bipartisan bills to ban congressional stock trading have been introduced repeatedly. They never pass. The people who would have to vote for it are the same people profiting from the current system. Funny how that works.
           </p>
         </div>
       </div>
