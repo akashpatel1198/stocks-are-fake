@@ -15,7 +15,7 @@ import {
 import { useSymbolStore, Symbol } from "@/stores/useSymbolStore";
 import { cn } from "@/lib/utils";
 
-type SortOption = "symbol-asc" | "symbol-desc" | "name-asc" | "name-desc" | "type";
+type SortOption = "best-match" | "symbol-asc" | "symbol-desc" | "name-asc" | "name-desc" | "type";
 
 const ITEMS_PER_PAGE = 36;
 
@@ -143,7 +143,7 @@ export default function SearchPage() {
     return fuse.search(query, { limit: 500 }).map((result) => result.item);
   }, [fuse, query]);
 
-  const applySorting = useCallback((items: Symbol[]) => {
+  const applySorting = useCallback((items: Symbol[], isSearchResult: boolean = false) => {
     if (randomSeed !== null) {
       const shuffled = [...items];
       let seed = randomSeed;
@@ -153,6 +153,13 @@ export default function SearchPage() {
         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
       }
       return shuffled;
+    }
+
+    if (sortBy === "best-match") {
+      if (isSearchResult) {
+        return items;
+      }
+      return [...items].sort((a, b) => a.symbol.localeCompare(b.symbol));
     }
 
     const sorted = [...items];
@@ -184,7 +191,7 @@ export default function SearchPage() {
 
   const sortedSearchResults = useMemo(() => {
     if (!searchResults) return null;
-    return applySorting(searchResults);
+    return applySorting(searchResults, true);
   }, [searchResults, applySorting]);
 
   const displayedSymbols = useMemo(() => {
@@ -223,6 +230,7 @@ export default function SearchPage() {
   };
 
   const sortLabels: Record<SortOption, string> = {
+    "best-match": "Best Match",
     "symbol-asc": "Symbol A → Z",
     "symbol-desc": "Symbol Z → A",
     "name-asc": "Name A → Z",
@@ -252,6 +260,10 @@ export default function SearchPage() {
             onChange={(e) => {
               setQuery(e.target.value);
               setVisibleCount(ITEMS_PER_PAGE);
+              if (e.target.value.trim()) {
+                setSortBy("best-match");
+                setRandomSeed(null);
+              }
             }}
             className="w-full pl-10 pr-10 py-3 rounded-xl border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
           />
