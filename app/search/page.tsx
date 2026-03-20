@@ -125,6 +125,7 @@ export default function SearchPage() {
   const [randomSeed, setRandomSeed] = useState<number | null>(null);
   const [showSortMenu, setShowSortMenu] = useState(false);
   const [showTypesModal, setShowTypesModal] = useState(false);
+  const [surpriseClicked, setSurpriseClicked] = useState(false);
 
   useEffect(() => {
     fetchSymbols();
@@ -199,9 +200,14 @@ export default function SearchPage() {
   };
 
   const handleRandomize = () => {
-    setRandomSeed(Date.now());
+    if (randomSeed) {
+      setRandomSeed(null);
+    } else {
+      setRandomSeed(Date.now());
+      setQuery("");
+    }
     setVisibleCount(ITEMS_PER_PAGE);
-    setQuery("");
+    setSurpriseClicked(true);
   };
 
   const handleSort = (option: SortOption) => {
@@ -263,7 +269,7 @@ export default function SearchPage() {
         <div className="relative">
           <button
             onClick={() => setShowSortMenu(!showSortMenu)}
-            className="flex items-center gap-2 px-4 py-3 rounded-xl border border-input bg-background hover:bg-accent transition-colors min-w-[160px]"
+            className="flex items-center gap-2 px-4 py-3 rounded-xl border border-input bg-background hover:bg-accent transition-colors w-[180px]"
           >
             <ArrowUpDown className="h-4 w-4 text-muted-foreground" />
             <span className="text-sm">{randomSeed ? "Randomized" : sortLabels[sortBy]}</span>
@@ -297,10 +303,12 @@ export default function SearchPage() {
         <button
           onClick={handleRandomize}
           className={cn(
-            "flex items-center gap-2 px-4 py-3 rounded-xl border transition-colors",
+            "flex items-center gap-2 px-4 py-3 rounded-xl transition-colors",
             randomSeed
-              ? "border-primary bg-primary/10 text-primary"
-              : "border-input bg-background hover:bg-accent"
+              ? "border border-primary bg-primary/10 text-primary"
+              : surpriseClicked
+                ? "border border-input bg-background hover:bg-accent"
+                : "surprise-me-idle bg-background"
           )}
         >
           <Shuffle className="h-4 w-4" />
@@ -408,23 +416,12 @@ export default function SearchPage() {
 
       {/* Results Info */}
       {!loading && !error && (
-        <div className="flex items-center justify-between mb-4">
+        <div className="mb-4">
           <p className="text-sm text-muted-foreground">
             {searchResults
               ? `Found ${searchResults.length.toLocaleString()} results for "${query}"`
               : `Showing ${displayedSymbols.length.toLocaleString()} of ${totalCount.toLocaleString()}`}
           </p>
-          {randomSeed && (
-            <button
-              onClick={() => {
-                setRandomSeed(null);
-                setVisibleCount(ITEMS_PER_PAGE);
-              }}
-              className="text-sm text-primary hover:underline"
-            >
-              Clear randomization
-            </button>
-          )}
         </div>
       )}
 
