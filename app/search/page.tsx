@@ -281,7 +281,7 @@ export default function SearchPage() {
         <div className="relative">
           <button
             onClick={() => setShowSortMenu(!showSortMenu)}
-            className="flex items-center gap-2 px-4 py-3 rounded-xl border border-input bg-background hover:bg-accent transition-colors w-[180px]"
+            className="flex items-center gap-2 px-4 py-3 rounded-xl border border-input bg-background hover:bg-accent transition-colors w-[180px] cursor-pointer"
           >
             <ArrowUpDown className="h-4 w-4 text-muted-foreground" />
             <span className="text-sm">{randomSeed ? "Randomized" : sortLabels[sortBy]}</span>
@@ -315,12 +315,12 @@ export default function SearchPage() {
         <button
           onClick={handleRandomize}
           className={cn(
-            "flex items-center gap-2 px-4 py-3 rounded-xl transition-colors",
+            "flex items-center gap-2 px-4 py-3 rounded-xl transition-colors cursor-pointer",
             randomSeed
-              ? "border border-primary bg-primary/10 text-primary"
+              ? "border border-primary bg-primary/10 text-primary hover:bg-primary/20"
               : surpriseClicked
                 ? "border border-input bg-background hover:bg-accent"
-                : "surprise-me-idle bg-background"
+                : "surprise-me-idle bg-background hover:bg-accent"
           )}
         >
           <Shuffle className="h-4 w-4" />
@@ -330,7 +330,7 @@ export default function SearchPage() {
         {/* Types Help Button */}
         <button
           onClick={() => setShowTypesModal(true)}
-          className="flex items-center gap-2 px-4 py-3 rounded-xl border border-input bg-background hover:bg-accent transition-colors"
+          className="flex items-center gap-2 px-4 py-3 rounded-xl border border-input bg-background hover:bg-accent transition-colors cursor-pointer"
           title="Learn about security types"
         >
           <HelpCircle className="h-4 w-4 text-muted-foreground" />

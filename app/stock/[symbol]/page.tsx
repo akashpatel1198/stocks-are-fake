@@ -151,7 +151,7 @@ export default function StockDetailPage() {
         <button
           onClick={() => (watching ? removeSymbol(symbol) : addSymbol(symbol))}
           className={cn(
-            "flex items-center gap-2 px-4 py-2 rounded-lg border transition-colors",
+            "flex items-center gap-2 px-4 py-2 rounded-lg border transition-colors cursor-pointer",
             watching
               ? "border-primary bg-primary/10 text-primary hover:bg-primary/20"
               : "border-border hover:bg-accent"

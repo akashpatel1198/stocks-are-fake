@@ -156,7 +156,7 @@ export default function LearnPage() {
             {!isAnimating && (
               <div className="mb-4">
                 <h1 className="text-2xl font-bold mb-1">Learn to Invest</h1>
-                <p className="text-base text-green-500/80">
+                <p className="text-base text-amber-700 dark:text-amber-400">
                   A no-nonsense guide to understanding the stock market. I tried to keep the pages short for a few min read. Note: I might add content as I continue to learn.
                 </p>
               </div>
