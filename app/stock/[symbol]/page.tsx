@@ -16,7 +16,9 @@ import {
   Loader2,
   Star,
   StarOff,
+  ArrowLeft,
 } from "lucide-react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useWatchlistStore } from "@/stores/useWatchlistStore";
 
@@ -122,6 +124,15 @@ export default function StockDetailPage() {
 
   return (
     <div className="p-8">
+      {/* Back button */}
+      <Link
+        href="/search"
+        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6 cursor-pointer"
+      >
+        <ArrowLeft className="h-4 w-4" />
+        Explore Stocks
+      </Link>
+
       {/* Header */}
       <div className="flex items-start justify-between mb-6">
         <div className="flex items-center gap-4">
