@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# stocks-are-fake
 
-## Getting Started
+A personal stock market research and education site. Look up stocks, track a watchlist, read market news, browse insider trades, and learn how the market works.
 
-First, run the development server:
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS 4
+- **State:** Zustand (with localStorage persistence)
+- **Search:** Fuse.js (client-side fuzzy search)
+- **Charts:** Recharts
+- **Icons:** Lucide React
+- **Theming:** next-themes (dark/light mode)
+- **Data:** Finnhub API (free tier, 60 req/min)
+
+## Live Version
+
+> **[https://stocks-are-fake.vercel.app/](https://stocks-are-fake.vercel.app/)**
+
+Browse stocks, add them to your watchlist, read market news, check insider trading activity, or go through the Learn section for stock market fundamentals. No account required.
+
+## Local Development
+
+### Prerequisites
+
+- Node.js 18+
+- npm
+- A free [Finnhub](https://finnhub.io/) API key
+
+### Setup
+
+```bash
+git clone https://github.com/your-username/stocks-are-fake.git
+cd stocks-are-fake
+npm install
+```
+
+Create a `.env` file in the root:
+
+```env
+FINNHUB_API_KEY=your_finnhub_api_key_here
+```
+
+| Variable | Description | Where to get it |
+|----------|-------------|-----------------|
+| `FINNHUB_API_KEY` | API key for all stock data (quotes, news, filings, etc.) | Sign up free at [finnhub.io](https://finnhub.io/) |
+
+Then start the dev server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | What it does |
+|---------|-------------|
+| `npm run dev` | Start dev server with hot reload |
+| `npm run build` | Production build |
+| `npm start` | Serve the production build |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/
+├── api/                # API routes that proxy requests to Finnhub
+│   ├── quote/          # Stock quotes
+│   ├── company/        # Company profiles
+│   ├── company-news/   # Company-specific news
+│   ├── market-news/    # General market news
+│   ├── insider/        # Insider transactions
+│   ├── filings/        # SEC filings
+│   ├── symbols/        # All US stock symbols (~10k)
+│   └── ...             # market-status, health, etc.
+├── stock/[symbol]/     # Stock detail page (overview, news, insider, filings tabs)
+├── search/             # Stock search with fuzzy matching
+├── watchlist/          # Saved stocks with price tracking
+├── news/               # Market news feed
+├── insider/            # Browse insider trades across the market
+├── learn/              # Educational content (7 topics + glossary)
+│   └── [slug]/         # Individual learn topic pages
+├── layout.tsx          # Root layout with sidebar nav
+└── page.tsx            # Home page (indices, market status)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+components/             # Shared UI components (sidebar, theme toggle, tooltips)
+stores/                 # Zustand stores (symbols cache, watchlist)
+lib/                    # Axios client config, utilities, learn content data
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Notes
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The Finnhub free tier limits you to 60 API calls per minute. The app caches the full symbol list (~10k stocks) client-side to avoid burning through that.
+- Historical price charts are not available on the free tier (the `/stock/candle` endpoint returns empty). See `ROADMAP.md` for details on what's blocked and potential alternative data sources.
+- This is a single-user app. No auth, no database. Watchlist data lives in localStorage.
