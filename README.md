@@ -94,5 +94,5 @@ lib/                    # Axios client config, utilities, learn content data
 ## Notes
 
 - The Finnhub free tier limits you to 60 API calls per minute. The app caches the full symbol list (~10k stocks) client-side to avoid burning through that.
-- Historical price charts are not available on the free tier (the `/stock/candle` endpoint returns empty). See `ROADMAP.md` for details on what's blocked and potential alternative data sources.
+- Historical price charts are not available on the free tier (the `/stock/candle` endpoint returns empty).
 - This is a single-user app. No auth, no database. Watchlist data lives in localStorage.
