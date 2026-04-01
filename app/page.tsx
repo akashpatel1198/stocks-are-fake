@@ -103,7 +103,7 @@ export default function Home() {
 
   return (
     <div className="p-8">
-      <h1 className="text-3xl font-bold mb-8">Market Overview</h1>
+      <h1 className="text-6xl font-bold tracking-tight leading-none mb-10">Market Overview</h1>
 
       {/* Market Status */}
       <div className="flex items-center gap-4 mb-8">
@@ -138,7 +138,7 @@ export default function Home() {
       </div>
 
       {/* Major Indices */}
-      <h2 className="text-xl font-semibold mb-4">Major Indices</h2>
+      <h2 className="text-xl font-semibold mb-6 text-primary">Major Indices</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {indices.map((index) => (
           <div
@@ -158,12 +158,12 @@ export default function Home() {
               </div>
             ) : index.quote ? (
               <>
-                <div className="text-2xl font-bold mb-1">
+                <div className="text-4xl font-bold tabular-nums mb-1">
                   ${index.quote.c.toFixed(2)}
                 </div>
                 <div
                   className={cn(
-                    "flex items-center gap-1 text-sm font-medium",
+                    "flex items-center gap-1 text-sm font-medium tabular-nums",
                     index.quote.d >= 0 ? "text-primary" : "text-destructive"
                   )}
                 >
@@ -192,9 +192,9 @@ export default function Home() {
       </div>
 
       {/* Why This Exists */}
-      <div className="mt-16 pt-8 border-t border-border">
-        <h2 className="text-lg font-semibold mb-4">Why This Exists</h2>
-        <div className="flex flex-col gap-4 text-base text-muted-foreground leading-relaxed">
+      <div className="mt-16 pt-8 border-t-2 border-primary/40">
+        <h2 className="text-xl font-semibold tracking-tight mb-6 text-primary">Why This Exists</h2>
+        <div className="editorial-text flex flex-col gap-6 text-base text-muted-foreground">
           <p>
             This site is about education. Financial literacy matters, regardless of your personal goals, because money affects everything. Understanding how markets work, what the terminology means, and how to read financial data is valuable knowledge. Whether you choose to participate in the market or simply want to understand the system you live within.
           </p>
@@ -205,9 +205,9 @@ export default function Home() {
       </div>
 
       {/* Personal Philosophy */}
-      <div className="mt-12 pt-8 border-t border-border">
-        <h2 className="text-lg font-semibold mb-4">Personal Philosophy</h2>
-        <div className="flex flex-col gap-4 text-base text-muted-foreground leading-relaxed">
+      <div className="mt-12 pt-8 border-t-2 border-primary/40">
+        <h2 className="text-xl font-semibold tracking-tight mb-6 text-primary">Personal Philosophy</h2>
+        <div className="editorial-text flex flex-col gap-6 text-base text-muted-foreground">
           <p>
             The stock market is largely a wealth transfer mechanism. Those with capital grow it exponentially while wages stagnate. The &quot;just invest early&quot; narrative ignores that most people don&apos;t have spare capital. The &quot;do your research and make smart trades&quot; advice assumes a level playing field that doesn&apos;t exist. Without insider access, it&apos;s gambling against professionals who see your cards.
           </p>
@@ -239,9 +239,9 @@ export default function Home() {
       </div>
 
       {/* When Retail Fought Back */}
-      <div className="mt-12 pt-8 border-t border-border">
-        <h2 className="text-lg font-semibold mb-4">When Retail Fought Back</h2>
-        <div className="flex flex-col gap-4 text-base text-muted-foreground leading-relaxed">
+      <div className="mt-12 pt-8 border-t-2 border-primary/40">
+        <h2 className="text-xl font-semibold tracking-tight mb-6 text-primary">When Retail Fought Back</h2>
+        <div className="editorial-text flex flex-col gap-6 text-base text-muted-foreground">
           <p>
             In January 2021, retail traders on Reddit&apos;s r/wallstreetbets noticed something: hedge funds had{" "}
             <a href="https://en.wikipedia.org/wiki/GameStop_short_squeeze" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
@@ -263,9 +263,9 @@ export default function Home() {
       </div>
 
       {/* The System Protects Itself */}
-      <div className="mt-12 pt-8 border-t border-border">
-        <h2 className="text-lg font-semibold mb-4">The System Protects Itself</h2>
-        <div className="flex flex-col gap-4 text-base text-muted-foreground leading-relaxed">
+      <div className="mt-12 pt-8 border-t-2 border-primary/40">
+        <h2 className="text-xl font-semibold tracking-tight mb-6 text-primary">The System Protects Itself</h2>
+        <div className="editorial-text flex flex-col gap-6 text-base text-muted-foreground">
           <p>
             At the height of the GameStop surge, Robinhood and other brokers blocked retail investors from buying more shares. You could only sell. The stock price immediately collapsed. Robinhood claimed it was due to &quot;clearinghouse requirements,&quot; but the timing was suspicious: restrictions kicked in exactly when hedge funds were facing catastrophic losses.
           </p>
@@ -305,9 +305,9 @@ export default function Home() {
       </div>
 
       {/* Global Manipulation */}
-      <div className="mt-12 pt-8 border-t border-border">
-        <h2 className="text-lg font-semibold mb-4">Global Manipulation</h2>
-        <div className="flex flex-col gap-4 text-base text-muted-foreground leading-relaxed">
+      <div className="mt-12 pt-8 border-t-2 border-primary/40">
+        <h2 className="text-xl font-semibold tracking-tight mb-6 text-primary">Global Manipulation</h2>
+        <div className="editorial-text flex flex-col gap-6 text-base text-muted-foreground">
           <p>
             In July 2025, India&apos;s securities regulator (SEBI){" "}
             <a href="https://www.reuters.com/sustainability/boards-policy-regulation/india-regulator-bars-jane-street-accessing-its-securities-market-2025-07-04/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
@@ -346,9 +346,9 @@ export default function Home() {
       </div>
 
       {/* Congressional Trading */}
-      <div className="mt-12 pt-8 border-t border-border">
-        <h2 className="text-lg font-semibold mb-4">The People Who Write the Rules</h2>
-        <div className="flex flex-col gap-4 text-base text-muted-foreground leading-relaxed">
+      <div className="mt-12 pt-8 border-t-2 border-primary/40">
+        <h2 className="text-xl font-semibold tracking-tight mb-6 text-primary">The People Who Write the Rules</h2>
+        <div className="editorial-text flex flex-col gap-6 text-base text-muted-foreground">
           <p>
             Members of Congress trade stocks while having access to non-public information and the power to pass laws that directly affect those companies. Nearly{" "}
             <a href="https://campaignlegal.org/document/congressional-stock-trading-numbers-119th-congress" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">

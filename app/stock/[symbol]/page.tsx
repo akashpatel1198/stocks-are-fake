@@ -145,7 +145,7 @@ export default function StockDetailPage() {
           )}
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-3xl font-bold">{symbol}</h1>
+              <h1 className="text-5xl font-bold tracking-tight leading-none">{symbol}</h1>
               {company?.exchange && (
                 <span className="text-sm text-muted-foreground bg-muted px-2 py-0.5 rounded">
                   {company.exchange}
@@ -191,10 +191,10 @@ export default function StockDetailPage() {
       ) : quote ? (
         <div className="mb-8">
           <div className="flex items-baseline gap-4">
-            <span className="text-4xl font-bold">${quote.c.toFixed(2)}</span>
+            <span className="text-4xl font-bold tabular-nums">${quote.c.toFixed(2)}</span>
             <div
               className={cn(
-                "flex items-center gap-1 text-lg font-medium",
+                "flex items-center gap-1 text-lg font-medium tabular-nums",
                 quote.d >= 0 ? "text-primary" : "text-destructive"
               )}
             >
@@ -345,7 +345,7 @@ function StatItem({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <p className="text-sm text-muted-foreground">{label}</p>
-      <p className="text-lg font-semibold">{value}</p>
+      <p className="text-lg font-semibold tabular-nums">{value}</p>
     </div>
   );
 }

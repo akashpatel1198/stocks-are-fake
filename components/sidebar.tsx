@@ -30,12 +30,12 @@ export function Sidebar() {
     <aside className="fixed left-0 top-0 z-40 h-screen w-56 border-r border-sidebar-border bg-sidebar">
       <div className="flex h-full flex-col">
         {/* Logo / Brand */}
-        <div className="flex h-16 items-center border-b border-sidebar-border px-4">
+        <div className="flex h-16 items-center border-b border-primary/30 px-4">
           <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <span className="text-sm font-bold">$</span>
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+              <span className="text-base font-bold">$</span>
             </div>
-            <span className="text-lg font-semibold text-sidebar-foreground">
+            <span className="text-lg font-bold text-sidebar-foreground">
               stocks-are-fake
             </span>
           </Link>
