@@ -9,6 +9,7 @@ import {
   Newspaper,
   UserSearch,
   BookOpen,
+  Compass,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./theme-toggle";
@@ -20,7 +21,7 @@ const navItems = [
   { href: "/watchlist", label: "Watchlist", icon: Eye },
   { href: "/news", label: "News", icon: Newspaper },
   { href: "/insider", label: "Insider", icon: UserSearch },
-  
+  { href: "/roadmap", label: "Roadmap", icon: Compass },
 ];
 
 export function Sidebar() {
