@@ -12,7 +12,6 @@ import {
   Compass,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { ThemeToggle } from "./theme-toggle";
 
 const navItems = [
   { href: "/", label: "Home", icon: Home },
@@ -70,8 +69,7 @@ export function Sidebar() {
 
         {/* Footer */}
         <div className="border-t border-sidebar-border px-3 py-3">
-          <ThemeToggle />
-          <p className="mt-2 px-3 text-xs text-sidebar-foreground/50">
+          <p className="px-3 text-xs text-sidebar-foreground/50">
             Personal use only
           </p>
         </div>

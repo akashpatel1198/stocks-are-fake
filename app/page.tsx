@@ -164,7 +164,7 @@ export default function Home() {
                 <div
                   className={cn(
                     "flex items-center gap-1 text-sm font-medium tabular-nums",
-                    index.quote.d >= 0 ? "text-primary" : "text-destructive"
+                    index.quote.d >= 0 ? "text-emerald-500" : "text-destructive"
                   )}
                 >
                   {index.quote.d >= 0 ? (

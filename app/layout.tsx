@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Lora, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Sidebar } from "@/components/sidebar";
-import { ThemeProvider } from "@/components/theme-provider";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -37,19 +36,12 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${lora.variable} ${geistMono.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
           <Sidebar />
           <main className="ml-56 min-h-screen">
             <div className="mx-auto max-w-7xl">
               {children}
             </div>
           </main>
-        </ThemeProvider>
       </body>
     </html>
   );
